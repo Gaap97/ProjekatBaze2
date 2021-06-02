@@ -1,0 +1,27 @@
+﻿<Window x:Class="ProjekatBaze2.Views.AddEditPsenicaView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjekatBaze2.Views"
+        mc:Ignorable="d"
+        Title="AddEditPsenicaView" Height="201.639" Width="358.212">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="1" Grid.Column="0" Margin="5" Content="Kolicina:"></Label>
+        <Label Grid.Row="2" Grid.Column="0" Margin="5" Content="Kvalitet:"></Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding KolicinaPsenice, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding Kvalitet, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <Button Grid.Row="3" Grid.Column="0" Margin="5" Content="Save" Command="{Binding SavePsenicaCommand}"></Button>
+        <Button Grid.Row="3" Grid.Column="1" Margin="5" Content="Cancel" Click="Button_Click"></Button>
+    </Grid>
+</Window>

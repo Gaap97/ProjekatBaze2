@@ -1,0 +1,27 @@
+﻿<Window x:Class="ProjekatBaze2.Views.AddEditMlinView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjekatBaze2.Views"
+        mc:Ignorable="d"
+        Title="AddEditMlinView" Height="156.148" Width="330.328">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="1" Grid.Column="0" Margin="5" Content="Naziv:"></Label>
+        <Label Grid.Row="2" Grid.Column="0" Margin="5" Content="Vlasnik:"></Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding NazivMlina, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding VlasnikMlina, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <Button Grid.Row="3" Grid.Column="0" Margin="5" Content="Save" Command="{Binding SaveMlinCommand}"></Button>
+        <Button Grid.Row="3" Grid.Column="1" Margin="5" Content="Cancel" Click="Button_Click"></Button>
+    </Grid>
+</Window>

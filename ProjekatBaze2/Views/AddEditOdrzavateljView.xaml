@@ -1,0 +1,39 @@
+﻿<Window x:Class="ProjekatBaze2.Views.AddEditOdrzavateljView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjekatBaze2.Views"
+        mc:Ignorable="d"
+        Title="AddEditOdrzavateljView" Height="450" Width="389.344">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="2" Grid.Column="0" Margin="5" Content="Ime:"></Label>
+            <Label Grid.Row="3" Grid.Column="0" Margin="5" Content="Prezime:"></Label>
+            <Label Grid.Row="4" Grid.Column="0" Margin="5" Content="Datum rodjenja:"></Label>
+            <Label Grid.Row="5" Grid.Column="0" Margin="5" Content="Zarada:"></Label>
+            <Label Grid.Row="6" Grid.Column="0" Margin="5" Content="Broj odrzavanih prekrupaca:"></Label>
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding Ime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox Grid.Row="3" Grid.Column="1" Margin="5" Text="{Binding Prezime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <DatePicker Grid.Row="4" Grid.Column="1" Margin="5" Text="{Binding DatumRodjenja, UpdateSourceTrigger=PropertyChanged}"></DatePicker>
+            <TextBox Grid.Row="5" Grid.Column="1" Margin="5" Text="{Binding Zarada, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox Grid.Row="6" Grid.Column="1" Margin="5" Text="{Binding BrojOdrzavanihPrekrupaca, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Button Grid.Row="7" Grid.Column="0" Margin="5" Content="Save" Command="{Binding SaveOdrzavateljCommand}"></Button>
+            <Button Grid.Row="7" Grid.Column="1" Margin="5" Content="Cancel" Click="Button_Click"></Button>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,1316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PoljoprivrednaFirma.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PoljoprivrednaFirmaStoreContainer">
+    <EntitySet Name="Radniks" EntityType="PoljoprivrednaFirma.Store.Radniks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Psenicas" EntityType="PoljoprivrednaFirma.Store.Psenicas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TestKvalitetas" EntityType="PoljoprivrednaFirma.Store.TestKvalitetas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Testiras" EntityType="PoljoprivrednaFirma.Store.Testiras" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Prihvatas" EntityType="PoljoprivrednaFirma.Store.Prihvatas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Silos" EntityType="PoljoprivrednaFirma.Store.Silos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Mlins" EntityType="PoljoprivrednaFirma.Store.Mlins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Prekrupacs" EntityType="PoljoprivrednaFirma.Store.Prekrupacs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Posedujes" EntityType="PoljoprivrednaFirma.Store.Posedujes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Brasnoes" EntityType="PoljoprivrednaFirma.Store.Brasnoes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pravis" EntityType="PoljoprivrednaFirma.Store.Pravis" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Uzimas" EntityType="PoljoprivrednaFirma.Store.Uzimas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Skladistes" EntityType="PoljoprivrednaFirma.Store.Skladistes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Imas" EntityType="PoljoprivrednaFirma.Store.Imas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Kamions" EntityType="PoljoprivrednaFirma.Store.Kamions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks_Prijemnik" EntityType="PoljoprivrednaFirma.Store.Radniks_Prijemnik" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks_Odrzavatelj" EntityType="PoljoprivrednaFirma.Store.Radniks_Odrzavatelj" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks_Magacioner" EntityType="PoljoprivrednaFirma.Store.Radniks_Magacioner" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks_Prevoznik" EntityType="PoljoprivrednaFirma.Store.Radniks_Prevoznik" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OdrzavateljPoseduje" EntityType="PoljoprivrednaFirma.Store.OdrzavateljPoseduje" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PsenicaTestira" Association="PoljoprivrednaFirma.Store.PsenicaTestira">
+      <End Role="Psenica" EntitySet="Psenicas" />
+      <End Role="Testira" EntitySet="Testiras" />
+    </AssociationSet>
+    <AssociationSet Name="TestKvalitetaTestira" Association="PoljoprivrednaFirma.Store.TestKvalitetaTestira">
+      <End Role="TestKvaliteta" EntitySet="TestKvalitetas" />
+      <End Role="Testira" EntitySet="Testiras" />
+    </AssociationSet>
+    <AssociationSet Name="PrijemnikPrihvata" Association="PoljoprivrednaFirma.Store.PrijemnikPrihvata">
+      <End Role="Prijemnik" EntitySet="Radniks_Prijemnik" />
+      <End Role="Prihvata" EntitySet="Prihvatas" />
+    </AssociationSet>
+    <AssociationSet Name="TestiraPrihvata" Association="PoljoprivrednaFirma.Store.TestiraPrihvata">
+      <End Role="Testira" EntitySet="Testiras" />
+      <End Role="Prihvata" EntitySet="Prihvatas" />
+    </AssociationSet>
+    <AssociationSet Name="MlinSilos" Association="PoljoprivrednaFirma.Store.MlinSilos">
+      <End Role="Mlin" EntitySet="Mlins" />
+      <End Role="Silos" EntitySet="Silos" />
+    </AssociationSet>
+    <AssociationSet Name="SilosPrihvata" Association="PoljoprivrednaFirma.Store.SilosPrihvata">
+      <End Role="Silos" EntitySet="Silos" />
+      <End Role="Prihvata" EntitySet="Prihvatas" />
+    </AssociationSet>
+    <AssociationSet Name="SilosPrekrupac" Association="PoljoprivrednaFirma.Store.SilosPrekrupac">
+      <End Role="Silos" EntitySet="Silos" />
+      <End Role="Prekrupac" EntitySet="Prekrupacs" />
+    </AssociationSet>
+    <AssociationSet Name="MlinPoseduje" Association="PoljoprivrednaFirma.Store.MlinPoseduje">
+      <End Role="Mlin" EntitySet="Mlins" />
+      <End Role="Poseduje" EntitySet="Posedujes" />
+    </AssociationSet>
+    <AssociationSet Name="PrekrupacPoseduje" Association="PoljoprivrednaFirma.Store.PrekrupacPoseduje">
+      <End Role="Prekrupac" EntitySet="Prekrupacs" />
+      <End Role="Poseduje" EntitySet="Posedujes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OdrzavateljPoseduje_Odrzavatelj" Association="PoljoprivrednaFirma.Store.FK_OdrzavateljPoseduje_Odrzavatelj">
+      <End Role="Odrzavatelj" EntitySet="Radniks_Odrzavatelj" />
+      <End Role="OdrzavateljPoseduje" EntitySet="OdrzavateljPoseduje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OdrzavateljPoseduje_Poseduje" Association="PoljoprivrednaFirma.Store.FK_OdrzavateljPoseduje_Poseduje">
+      <End Role="Poseduje" EntitySet="Posedujes" />
+      <End Role="OdrzavateljPoseduje" EntitySet="OdrzavateljPoseduje" />
+    </AssociationSet>
+    <AssociationSet Name="PrekrupacPravi" Association="PoljoprivrednaFirma.Store.PrekrupacPravi">
+      <End Role="Prekrupac" EntitySet="Prekrupacs" />
+      <End Role="Pravi" EntitySet="Pravis" />
+    </AssociationSet>
+    <AssociationSet Name="BrasnoPravi" Association="PoljoprivrednaFirma.Store.BrasnoPravi">
+      <End Role="Brasno" EntitySet="Brasnoes" />
+      <End Role="Pravi" EntitySet="Pravis" />
+    </AssociationSet>
+    <AssociationSet Name="MagacionerUzima" Association="PoljoprivrednaFirma.Store.MagacionerUzima">
+      <End Role="Magacioner" EntitySet="Radniks_Magacioner" />
+      <End Role="Uzima" EntitySet="Uzimas" />
+    </AssociationSet>
+    <AssociationSet Name="PraviUzima" Association="PoljoprivrednaFirma.Store.PraviUzima">
+      <End Role="Pravi" EntitySet="Pravis" />
+      <End Role="Uzima" EntitySet="Uzimas" />
+    </AssociationSet>
+    <AssociationSet Name="SkladisteUzima" Association="PoljoprivrednaFirma.Store.SkladisteUzima">
+      <End Role="Skladiste" EntitySet="Skladistes" />
+      <End Role="Uzima" EntitySet="Uzimas" />
+    </AssociationSet>
+    <AssociationSet Name="MlinIma" Association="PoljoprivrednaFirma.Store.MlinIma">
+      <End Role="Mlin" EntitySet="Mlins" />
+      <End Role="Ima" EntitySet="Imas" />
+    </AssociationSet>
+    <AssociationSet Name="SkladisteIma" Association="PoljoprivrednaFirma.Store.SkladisteIma">
+      <End Role="Skladiste" EntitySet="Skladistes" />
+      <End Role="Ima" EntitySet="Imas" />
+    </AssociationSet>
+    <AssociationSet Name="KamionIma" Association="PoljoprivrednaFirma.Store.KamionIma">
+      <End Role="Kamion" EntitySet="Kamions" />
+      <End Role="Ima" EntitySet="Imas" />
+    </AssociationSet>
+    <AssociationSet Name="PrevoznikKamion" Association="PoljoprivrednaFirma.Store.PrevoznikKamion">
+      <End Role="Prevoznik" EntitySet="Radniks_Prevoznik" />
+      <End Role="Kamion" EntitySet="Kamions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prijemnik_inherits_Radnik" Association="PoljoprivrednaFirma.Store.FK_Prijemnik_inherits_Radnik">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="Prijemnik" EntitySet="Radniks_Prijemnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Odrzavatelj_inherits_Radnik" Association="PoljoprivrednaFirma.Store.FK_Odrzavatelj_inherits_Radnik">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="Odrzavatelj" EntitySet="Radniks_Odrzavatelj" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Magacioner_inherits_Radnik" Association="PoljoprivrednaFirma.Store.FK_Magacioner_inherits_Radnik">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="Magacioner" EntitySet="Radniks_Magacioner" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prevoznik_inherits_Radnik" Association="PoljoprivrednaFirma.Store.FK_Prevoznik_inherits_Radnik">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="Prevoznik" EntitySet="Radniks_Prevoznik" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Radniks">
+    <Key>
+      <PropertyRef Name="JMBG" />
+    </Key>
+    <Property Name="JMBG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Prezime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DatumRodjenja" Type="datetime" Nullable="false" />
+    <Property Name="Zarada" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Psenicas">
+    <Key>
+      <PropertyRef Name="IdPsenice" />
+    </Key>
+    <Property Name="IdPsenice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KolicinaPsenice" Type="float" Nullable="false" />
+    <Property Name="Kvalitet" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TestKvalitetas">
+    <Key>
+      <PropertyRef Name="IdTesta" />
+    </Key>
+    <Property Name="IdTesta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KapacitetTestera" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Testiras">
+    <Key>
+      <PropertyRef Name="PsenicaIdPsenice" />
+      <PropertyRef Name="TestKvalitetaIdTesta" />
+    </Key>
+    <Property Name="PsenicaIdPsenice" Type="int" Nullable="false" />
+    <Property Name="TestKvalitetaIdTesta" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Prihvatas">
+    <Key>
+      <PropertyRef Name="PrijemnikJMBG" />
+      <PropertyRef Name="TestiraPsenicaIdPsenice" />
+      <PropertyRef Name="TestiraTestKvalitetaIdTesta" />
+    </Key>
+    <Property Name="PrijemnikJMBG" Type="int" Nullable="false" />
+    <Property Name="TestiraPsenicaIdPsenice" Type="int" Nullable="false" />
+    <Property Name="TestiraTestKvalitetaIdTesta" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Silos">
+    <Key>
+      <PropertyRef Name="IdSilosa" />
+    </Key>
+    <Property Name="IdSilosa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KapacitetSilosa" Type="float" Nullable="false" />
+    <Property Name="PopunjenKapacitetS" Type="bit" Nullable="false" />
+    <Property Name="Mlin_IdMlina" Type="int" Nullable="true" />
+    <Property Name="Prihvata_PrijemnikJMBG" Type="int" Nullable="true" />
+    <Property Name="Prihvata_TestiraPsenicaIdPsenice" Type="int" Nullable="true" />
+    <Property Name="Prihvata_TestiraTestKvalitetaIdTesta" Type="int" Nullable="true" />
+    <Property Name="Prekrupac_IdPrekrupaca" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Mlins">
+    <Key>
+      <PropertyRef Name="IdMlina" />
+    </Key>
+    <Property Name="IdMlina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NazivMlina" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="VlasnikMlina" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SilosIdSilosa" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Prekrupacs">
+    <Key>
+      <PropertyRef Name="IdPrekrupaca" />
+    </Key>
+    <Property Name="IdPrekrupaca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KapacitetPrekrupaca" Type="float" Nullable="false" />
+    <Property Name="PopunjenKapacitetP" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Posedujes">
+    <Key>
+      <PropertyRef Name="MlinIdMlina" />
+      <PropertyRef Name="PrekrupacIdPrekrupaca" />
+    </Key>
+    <Property Name="MlinIdMlina" Type="int" Nullable="false" />
+    <Property Name="PrekrupacIdPrekrupaca" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Brasnoes">
+    <Key>
+      <PropertyRef Name="IdBrasna" />
+    </Key>
+    <Property Name="IdBrasna" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KolicinaBrasna" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pravis">
+    <Key>
+      <PropertyRef Name="PrekrupacIdPrekrupaca" />
+      <PropertyRef Name="BrasnoIdBrasna" />
+    </Key>
+    <Property Name="PrekrupacIdPrekrupaca" Type="int" Nullable="false" />
+    <Property Name="BrasnoIdBrasna" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Uzimas">
+    <Key>
+      <PropertyRef Name="MagacionerJMBG" />
+      <PropertyRef Name="PraviPrekrupacIdPrekrupaca" />
+      <PropertyRef Name="PraviBrasnoIdBrasna" />
+    </Key>
+    <Property Name="MagacionerJMBG" Type="int" Nullable="false" />
+    <Property Name="PraviPrekrupacIdPrekrupaca" Type="int" Nullable="false" />
+    <Property Name="PraviBrasnoIdBrasna" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Skladistes">
+    <Key>
+      <PropertyRef Name="IdSkladista" />
+    </Key>
+    <Property Name="IdSkladista" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KapacitetSkladista" Type="bit" Nullable="false" />
+    <Property Name="PopunjenKapacitetSk" Type="bit" Nullable="false" />
+    <Property Name="Uzima_MagacionerJMBG" Type="int" Nullable="true" />
+    <Property Name="Uzima_PraviPrekrupacIdPrekrupaca" Type="int" Nullable="true" />
+    <Property Name="Uzima_PraviBrasnoIdBrasna" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Imas">
+    <Key>
+      <PropertyRef Name="MlinIdMlina" />
+      <PropertyRef Name="SkladisteIdSkladista" />
+    </Key>
+    <Property Name="MlinIdMlina" Type="int" Nullable="false" />
+    <Property Name="SkladisteIdSkladista" Type="int" Nullable="false" />
+    <Property Name="Kamion_IdKamiona" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Kamions">
+    <Key>
+      <PropertyRef Name="IdKamiona" />
+    </Key>
+    <Property Name="IdKamiona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KapacitetKamiona" Type="float" Nullable="false" />
+    <Property Name="ImaVozaca" Type="bit" Nullable="false" />
+    <Property Name="Prevoznik_JMBG" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Radniks_Prijemnik">
+    <Key>
+      <PropertyRef Name="JMBG" />
+    </Key>
+    <Property Name="ProsecanBrPrijema" Type="float" Nullable="false" />
+    <Property Name="JMBG" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radniks_Odrzavatelj">
+    <Key>
+      <PropertyRef Name="JMBG" />
+    </Key>
+    <Property Name="BrojOdrzavanihPrekrupaca" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TrenutnoZauzet" Type="bit" Nullable="false" />
+    <Property Name="JMBG" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radniks_Magacioner">
+    <Key>
+      <PropertyRef Name="JMBG" />
+    </Key>
+    <Property Name="ProsecanBrUzimanja" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="JMBG" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radniks_Prevoznik">
+    <Key>
+      <PropertyRef Name="JMBG" />
+    </Key>
+    <Property Name="ProsecanBrPrevoza" Type="float" Nullable="false" />
+    <Property Name="JMBG" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OdrzavateljPoseduje">
+    <Key>
+      <PropertyRef Name="Odrzavateljs_JMBG" />
+      <PropertyRef Name="Posedujes_MlinIdMlina" />
+      <PropertyRef Name="Posedujes_PrekrupacIdPrekrupaca" />
+    </Key>
+    <Property Name="Odrzavateljs_JMBG" Type="int" Nullable="false" />
+    <Property Name="Posedujes_MlinIdMlina" Type="int" Nullable="false" />
+    <Property Name="Posedujes_PrekrupacIdPrekrupaca" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="PsenicaTestira">
+    <End Role="Psenica" Type="PoljoprivrednaFirma.Store.Psenicas" Multiplicity="1" />
+    <End Role="Testira" Type="PoljoprivrednaFirma.Store.Testiras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Psenica">
+        <PropertyRef Name="IdPsenice" />
+      </Principal>
+      <Dependent Role="Testira">
+        <PropertyRef Name="PsenicaIdPsenice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TestKvalitetaTestira">
+    <End Role="TestKvaliteta" Type="PoljoprivrednaFirma.Store.TestKvalitetas" Multiplicity="1" />
+    <End Role="Testira" Type="PoljoprivrednaFirma.Store.Testiras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TestKvaliteta">
+        <PropertyRef Name="IdTesta" />
+      </Principal>
+      <Dependent Role="Testira">
+        <PropertyRef Name="TestKvalitetaIdTesta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrijemnikPrihvata">
+    <End Role="Prijemnik" Type="PoljoprivrednaFirma.Store.Radniks_Prijemnik" Multiplicity="1" />
+    <End Role="Prihvata" Type="PoljoprivrednaFirma.Store.Prihvatas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prijemnik">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Prihvata">
+        <PropertyRef Name="PrijemnikJMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TestiraPrihvata">
+    <End Role="Testira" Type="PoljoprivrednaFirma.Store.Testiras" Multiplicity="1" />
+    <End Role="Prihvata" Type="PoljoprivrednaFirma.Store.Prihvatas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Testira">
+        <PropertyRef Name="PsenicaIdPsenice" />
+        <PropertyRef Name="TestKvalitetaIdTesta" />
+      </Principal>
+      <Dependent Role="Prihvata">
+        <PropertyRef Name="TestiraPsenicaIdPsenice" />
+        <PropertyRef Name="TestiraTestKvalitetaIdTesta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MlinSilos">
+    <End Role="Mlin" Type="PoljoprivrednaFirma.Store.Mlins" Multiplicity="0..1" />
+    <End Role="Silos" Type="PoljoprivrednaFirma.Store.Silos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mlin">
+        <PropertyRef Name="IdMlina" />
+      </Principal>
+      <Dependent Role="Silos">
+        <PropertyRef Name="Mlin_IdMlina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SilosPrihvata">
+    <End Role="Silos" Type="PoljoprivrednaFirma.Store.Silos" Multiplicity="*" />
+    <End Role="Prihvata" Type="PoljoprivrednaFirma.Store.Prihvatas" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Prihvata">
+        <PropertyRef Name="PrijemnikJMBG" />
+        <PropertyRef Name="TestiraPsenicaIdPsenice" />
+        <PropertyRef Name="TestiraTestKvalitetaIdTesta" />
+      </Principal>
+      <Dependent Role="Silos">
+        <PropertyRef Name="Prihvata_PrijemnikJMBG" />
+        <PropertyRef Name="Prihvata_TestiraPsenicaIdPsenice" />
+        <PropertyRef Name="Prihvata_TestiraTestKvalitetaIdTesta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SilosPrekrupac">
+    <End Role="Silos" Type="PoljoprivrednaFirma.Store.Silos" Multiplicity="*" />
+    <End Role="Prekrupac" Type="PoljoprivrednaFirma.Store.Prekrupacs" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Prekrupac">
+        <PropertyRef Name="IdPrekrupaca" />
+      </Principal>
+      <Dependent Role="Silos">
+        <PropertyRef Name="Prekrupac_IdPrekrupaca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MlinPoseduje">
+    <End Role="Mlin" Type="PoljoprivrednaFirma.Store.Mlins" Multiplicity="1" />
+    <End Role="Poseduje" Type="PoljoprivrednaFirma.Store.Posedujes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mlin">
+        <PropertyRef Name="IdMlina" />
+      </Principal>
+      <Dependent Role="Poseduje">
+        <PropertyRef Name="MlinIdMlina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrekrupacPoseduje">
+    <End Role="Prekrupac" Type="PoljoprivrednaFirma.Store.Prekrupacs" Multiplicity="1" />
+    <End Role="Poseduje" Type="PoljoprivrednaFirma.Store.Posedujes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prekrupac">
+        <PropertyRef Name="IdPrekrupaca" />
+      </Principal>
+      <Dependent Role="Poseduje">
+        <PropertyRef Name="PrekrupacIdPrekrupaca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrekrupacPravi">
+    <End Role="Prekrupac" Type="PoljoprivrednaFirma.Store.Prekrupacs" Multiplicity="1" />
+    <End Role="Pravi" Type="PoljoprivrednaFirma.Store.Pravis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prekrupac">
+        <PropertyRef Name="IdPrekrupaca" />
+      </Principal>
+      <Dependent Role="Pravi">
+        <PropertyRef Name="PrekrupacIdPrekrupaca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BrasnoPravi">
+    <End Role="Brasno" Type="PoljoprivrednaFirma.Store.Brasnoes" Multiplicity="1" />
+    <End Role="Pravi" Type="PoljoprivrednaFirma.Store.Pravis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brasno">
+        <PropertyRef Name="IdBrasna" />
+      </Principal>
+      <Dependent Role="Pravi">
+        <PropertyRef Name="BrasnoIdBrasna" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MagacionerUzima">
+    <End Role="Magacioner" Type="PoljoprivrednaFirma.Store.Radniks_Magacioner" Multiplicity="1" />
+    <End Role="Uzima" Type="PoljoprivrednaFirma.Store.Uzimas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magacioner">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Uzima">
+        <PropertyRef Name="MagacionerJMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PraviUzima">
+    <End Role="Pravi" Type="PoljoprivrednaFirma.Store.Pravis" Multiplicity="1" />
+    <End Role="Uzima" Type="PoljoprivrednaFirma.Store.Uzimas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pravi">
+        <PropertyRef Name="PrekrupacIdPrekrupaca" />
+        <PropertyRef Name="BrasnoIdBrasna" />
+      </Principal>
+      <Dependent Role="Uzima">
+        <PropertyRef Name="PraviPrekrupacIdPrekrupaca" />
+        <PropertyRef Name="PraviBrasnoIdBrasna" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SkladisteUzima">
+    <End Role="Skladiste" Type="PoljoprivrednaFirma.Store.Skladistes" Multiplicity="*" />
+    <End Role="Uzima" Type="PoljoprivrednaFirma.Store.Uzimas" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Uzima">
+        <PropertyRef Name="MagacionerJMBG" />
+        <PropertyRef Name="PraviPrekrupacIdPrekrupaca" />
+        <PropertyRef Name="PraviBrasnoIdBrasna" />
+      </Principal>
+      <Dependent Role="Skladiste">
+        <PropertyRef Name="Uzima_MagacionerJMBG" />
+        <PropertyRef Name="Uzima_PraviPrekrupacIdPrekrupaca" />
+        <PropertyRef Name="Uzima_PraviBrasnoIdBrasna" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MlinIma">
+    <End Role="Mlin" Type="PoljoprivrednaFirma.Store.Mlins" Multiplicity="1" />
+    <End Role="Ima" Type="PoljoprivrednaFirma.Store.Imas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mlin">
+        <PropertyRef Name="IdMlina" />
+      </Principal>
+      <Dependent Role="Ima">
+        <PropertyRef Name="MlinIdMlina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SkladisteIma">
+    <End Role="Skladiste" Type="PoljoprivrednaFirma.Store.Skladistes" Multiplicity="1" />
+    <End Role="Ima" Type="PoljoprivrednaFirma.Store.Imas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skladiste">
+        <PropertyRef Name="IdSkladista" />
+      </Principal>
+      <Dependent Role="Ima">
+        <PropertyRef Name="SkladisteIdSkladista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KamionIma">
+    <End Role="Kamion" Type="PoljoprivrednaFirma.Store.Kamions" Multiplicity="0..1" />
+    <End Role="Ima" Type="PoljoprivrednaFirma.Store.Imas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kamion">
+        <PropertyRef Name="IdKamiona" />
+      </Principal>
+      <Dependent Role="Ima">
+        <PropertyRef Name="Kamion_IdKamiona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrevoznikKamion">
+    <End Role="Prevoznik" Type="PoljoprivrednaFirma.Store.Radniks_Prevoznik" Multiplicity="0..1" />
+    <End Role="Kamion" Type="PoljoprivrednaFirma.Store.Kamions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prevoznik">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Kamion">
+        <PropertyRef Name="Prevoznik_JMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OdrzavateljPoseduje_Odrzavatelj">
+    <End Role="Odrzavatelj" Type="PoljoprivrednaFirma.Store.Radniks_Odrzavatelj" Multiplicity="1" />
+    <End Role="OdrzavateljPoseduje" Type="PoljoprivrednaFirma.Store.OdrzavateljPoseduje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Odrzavatelj">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="OdrzavateljPoseduje">
+        <PropertyRef Name="Odrzavateljs_JMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OdrzavateljPoseduje_Poseduje">
+    <End Role="OdrzavateljPoseduje" Type="PoljoprivrednaFirma.Store.OdrzavateljPoseduje" Multiplicity="*" />
+    <End Role="Poseduje" Type="PoljoprivrednaFirma.Store.Posedujes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Poseduje">
+        <PropertyRef Name="MlinIdMlina" />
+        <PropertyRef Name="PrekrupacIdPrekrupaca" />
+      </Principal>
+      <Dependent Role="OdrzavateljPoseduje">
+        <PropertyRef Name="Posedujes_MlinIdMlina" />
+        <PropertyRef Name="Posedujes_PrekrupacIdPrekrupaca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prijemnik_inherits_Radnik">
+    <End Role="Radnik" Type="PoljoprivrednaFirma.Store.Radniks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Prijemnik" Type="PoljoprivrednaFirma.Store.Radniks_Prijemnik" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Prijemnik">
+        <PropertyRef Name="JMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Odrzavatelj_inherits_Radnik">
+    <End Role="Radnik" Type="PoljoprivrednaFirma.Store.Radniks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Odrzavatelj" Type="PoljoprivrednaFirma.Store.Radniks_Odrzavatelj" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Odrzavatelj">
+        <PropertyRef Name="JMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Magacioner_inherits_Radnik">
+    <End Role="Radnik" Type="PoljoprivrednaFirma.Store.Radniks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Magacioner" Type="PoljoprivrednaFirma.Store.Radniks_Magacioner" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Magacioner">
+        <PropertyRef Name="JMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prevoznik_inherits_Radnik">
+    <End Role="Radnik" Type="PoljoprivrednaFirma.Store.Radniks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Prevoznik" Type="PoljoprivrednaFirma.Store.Radniks_Prevoznik" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Prevoznik">
+        <PropertyRef Name="JMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PoljoprivrednaFirma" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="PoljoprivrednaFirmaContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Radniks" EntityType="PoljoprivrednaFirma.Radnik" />
+          <EntitySet Name="Psenicas" EntityType="PoljoprivrednaFirma.Psenica" />
+          <EntitySet Name="TestKvalitetas" EntityType="PoljoprivrednaFirma.TestKvaliteta" />
+          <EntitySet Name="Testiras" EntityType="PoljoprivrednaFirma.Testira" />
+          <EntitySet Name="Prihvatas" EntityType="PoljoprivrednaFirma.Prihvata" />
+          <AssociationSet Name="PsenicaTestira" Association="PoljoprivrednaFirma.PsenicaTestira">
+            <End Role="Psenica" EntitySet="Psenicas" />
+            <End Role="Testira" EntitySet="Testiras" />
+          </AssociationSet>
+          <AssociationSet Name="TestKvalitetaTestira" Association="PoljoprivrednaFirma.TestKvalitetaTestira">
+            <End Role="TestKvaliteta" EntitySet="TestKvalitetas" />
+            <End Role="Testira" EntitySet="Testiras" />
+          </AssociationSet>
+          <AssociationSet Name="PrijemnikPrihvata" Association="PoljoprivrednaFirma.PrijemnikPrihvata">
+            <End Role="Prijemnik" EntitySet="Radniks" />
+            <End Role="Prihvata" EntitySet="Prihvatas" />
+          </AssociationSet>
+          <AssociationSet Name="TestiraPrihvata" Association="PoljoprivrednaFirma.TestiraPrihvata">
+            <End Role="Testira" EntitySet="Testiras" />
+            <End Role="Prihvata" EntitySet="Prihvatas" />
+          </AssociationSet>
+          <EntitySet Name="Silos" EntityType="PoljoprivrednaFirma.Silos" />
+          <EntitySet Name="Mlins" EntityType="PoljoprivrednaFirma.Mlin" />
+          <AssociationSet Name="MlinSilos" Association="PoljoprivrednaFirma.MlinSilos">
+            <End Role="Mlin" EntitySet="Mlins" />
+            <End Role="Silos" EntitySet="Silos" />
+          </AssociationSet>
+          <AssociationSet Name="SilosPrihvata" Association="PoljoprivrednaFirma.SilosPrihvata">
+            <End Role="Silos" EntitySet="Silos" />
+            <End Role="Prihvata" EntitySet="Prihvatas" />
+          </AssociationSet>
+          <EntitySet Name="Prekrupacs" EntityType="PoljoprivrednaFirma.Prekrupac" />
+          <AssociationSet Name="SilosPrekrupac" Association="PoljoprivrednaFirma.SilosPrekrupac">
+            <End Role="Silos" EntitySet="Silos" />
+            <End Role="Prekrupac" EntitySet="Prekrupacs" />
+          </AssociationSet>
+          <EntitySet Name="Posedujes" EntityType="PoljoprivrednaFirma.Poseduje" />
+          <AssociationSet Name="MlinPoseduje" Association="PoljoprivrednaFirma.MlinPoseduje">
+            <End Role="Mlin" EntitySet="Mlins" />
+            <End Role="Poseduje" EntitySet="Posedujes" />
+          </AssociationSet>
+          <AssociationSet Name="PrekrupacPoseduje" Association="PoljoprivrednaFirma.PrekrupacPoseduje">
+            <End Role="Prekrupac" EntitySet="Prekrupacs" />
+            <End Role="Poseduje" EntitySet="Posedujes" />
+          </AssociationSet>
+          <AssociationSet Name="OdrzavateljPoseduje" Association="PoljoprivrednaFirma.OdrzavateljPoseduje">
+            <End Role="Odrzavatelj" EntitySet="Radniks" />
+            <End Role="Poseduje" EntitySet="Posedujes" />
+          </AssociationSet>
+          <EntitySet Name="Brasnoes" EntityType="PoljoprivrednaFirma.Brasno" />
+          <EntitySet Name="Pravis" EntityType="PoljoprivrednaFirma.Pravi" />
+          <AssociationSet Name="PrekrupacPravi" Association="PoljoprivrednaFirma.PrekrupacPravi">
+            <End Role="Prekrupac" EntitySet="Prekrupacs" />
+            <End Role="Pravi" EntitySet="Pravis" />
+          </AssociationSet>
+          <AssociationSet Name="BrasnoPravi" Association="PoljoprivrednaFirma.BrasnoPravi">
+            <End Role="Brasno" EntitySet="Brasnoes" />
+            <End Role="Pravi" EntitySet="Pravis" />
+          </AssociationSet>
+          <EntitySet Name="Uzimas" EntityType="PoljoprivrednaFirma.Uzima" />
+          <AssociationSet Name="MagacionerUzima" Association="PoljoprivrednaFirma.MagacionerUzima">
+            <End Role="Magacioner" EntitySet="Radniks" />
+            <End Role="Uzima" EntitySet="Uzimas" />
+          </AssociationSet>
+          <AssociationSet Name="PraviUzima" Association="PoljoprivrednaFirma.PraviUzima">
+            <End Role="Pravi" EntitySet="Pravis" />
+            <End Role="Uzima" EntitySet="Uzimas" />
+          </AssociationSet>
+          <EntitySet Name="Skladistes" EntityType="PoljoprivrednaFirma.Skladiste" />
+          <AssociationSet Name="SkladisteUzima" Association="PoljoprivrednaFirma.SkladisteUzima">
+            <End Role="Skladiste" EntitySet="Skladistes" />
+            <End Role="Uzima" EntitySet="Uzimas" />
+          </AssociationSet>
+          <EntitySet Name="Imas" EntityType="PoljoprivrednaFirma.Ima" />
+          <AssociationSet Name="MlinIma" Association="PoljoprivrednaFirma.MlinIma">
+            <End Role="Mlin" EntitySet="Mlins" />
+            <End Role="Ima" EntitySet="Imas" />
+          </AssociationSet>
+          <AssociationSet Name="SkladisteIma" Association="PoljoprivrednaFirma.SkladisteIma">
+            <End Role="Skladiste" EntitySet="Skladistes" />
+            <End Role="Ima" EntitySet="Imas" />
+          </AssociationSet>
+          <EntitySet Name="Kamions" EntityType="PoljoprivrednaFirma.Kamion" />
+          <AssociationSet Name="KamionIma" Association="PoljoprivrednaFirma.KamionIma">
+            <End Role="Kamion" EntitySet="Kamions" />
+            <End Role="Ima" EntitySet="Imas" />
+          </AssociationSet>
+          <AssociationSet Name="PrevoznikKamion" Association="PoljoprivrednaFirma.PrevoznikKamion">
+            <End Role="Prevoznik" EntitySet="Radniks" />
+            <End Role="Kamion" EntitySet="Kamions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Radnik">
+          <Key>
+            <PropertyRef Name="JMBG" />
+          </Key>
+          <Property Name="JMBG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" Nullable="false" />
+          <Property Name="Prezime" Type="String" Nullable="false" />
+          <Property Name="DatumRodjenja" Type="DateTime" Nullable="false" />
+          <Property Name="Zarada" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prevoznik" BaseType="PoljoprivrednaFirma.Radnik" >
+          <Property Name="ProsecanBrPrevoza" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Kamions" Relationship="PoljoprivrednaFirma.PrevoznikKamion" FromRole="Prevoznik" ToRole="Kamion" />
+        </EntityType>
+        <EntityType Name="Prijemnik" BaseType="PoljoprivrednaFirma.Radnik" >
+          <Property Name="ProsecanBrPrijema" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Prihvatas" Relationship="PoljoprivrednaFirma.PrijemnikPrihvata" FromRole="Prijemnik" ToRole="Prihvata" />
+        </EntityType>
+        <EntityType Name="Odrzavatelj" BaseType="PoljoprivrednaFirma.Radnik" >
+          <Property Name="BrojOdrzavanihPrekrupaca" Type="String" Nullable="false" />
+          <Property Name="TrenutnoZauzet" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Posedujes" Relationship="PoljoprivrednaFirma.OdrzavateljPoseduje" FromRole="Odrzavatelj" ToRole="Poseduje" />
+        </EntityType>
+        <EntityType Name="Magacioner" BaseType="PoljoprivrednaFirma.Radnik" >
+          <Property Name="ProsecanBrUzimanja" Type="String" Nullable="false" />
+          <NavigationProperty Name="Uzimas" Relationship="PoljoprivrednaFirma.MagacionerUzima" FromRole="Magacioner" ToRole="Uzima" />
+        </EntityType>
+        <EntityType Name="Psenica">
+          <Key>
+            <PropertyRef Name="IdPsenice" />
+          </Key>
+          <Property Name="IdPsenice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KolicinaPsenice" Type="Double" Nullable="false" />
+          <Property Name="Kvalitet" Type="String" Nullable="false" />
+          <NavigationProperty Name="Testiras" Relationship="PoljoprivrednaFirma.PsenicaTestira" FromRole="Psenica" ToRole="Testira" />
+        </EntityType>
+        <EntityType Name="TestKvaliteta">
+          <Key>
+            <PropertyRef Name="IdTesta" />
+          </Key>
+          <Property Name="IdTesta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KapacitetTestera" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Testiras" Relationship="PoljoprivrednaFirma.TestKvalitetaTestira" FromRole="TestKvaliteta" ToRole="Testira" />
+        </EntityType>
+        <EntityType Name="Testira" >
+          <Key>
+            <PropertyRef Name="PsenicaIdPsenice" />
+            <PropertyRef Name="TestKvalitetaIdTesta" />
+          </Key>
+          <NavigationProperty Name="Psenica" Relationship="PoljoprivrednaFirma.PsenicaTestira" FromRole="Testira" ToRole="Psenica" />
+          <Property Name="PsenicaIdPsenice" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TestKvaliteta" Relationship="PoljoprivrednaFirma.TestKvalitetaTestira" FromRole="Testira" ToRole="TestKvaliteta" />
+          <Property Name="TestKvalitetaIdTesta" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Prihvatas" Relationship="PoljoprivrednaFirma.TestiraPrihvata" FromRole="Testira" ToRole="Prihvata" />
+        </EntityType>
+        <EntityType Name="Prihvata" >
+          <Key>
+            <PropertyRef Name="PrijemnikJMBG" />
+            <PropertyRef Name="TestiraPsenicaIdPsenice" />
+            <PropertyRef Name="TestiraTestKvalitetaIdTesta" />
+          </Key>
+          <NavigationProperty Name="Prijemnik" Relationship="PoljoprivrednaFirma.PrijemnikPrihvata" FromRole="Prihvata" ToRole="Prijemnik" />
+          <Property Name="PrijemnikJMBG" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Testira" Relationship="PoljoprivrednaFirma.TestiraPrihvata" FromRole="Prihvata" ToRole="Testira" />
+          <Property Name="TestiraPsenicaIdPsenice" Type="Int32" Nullable="false" />
+          <Property Name="TestiraTestKvalitetaIdTesta" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Silos" Relationship="PoljoprivrednaFirma.SilosPrihvata" FromRole="Prihvata" ToRole="Silos" />
+        </EntityType>
+        <Association Name="PsenicaTestira">
+          <End Type="PoljoprivrednaFirma.Psenica" Role="Psenica" Multiplicity="1" />
+          <End Type="PoljoprivrednaFirma.Testira" Role="Testira" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Psenica">
+              <PropertyRef Name="IdPsenice" />
+            </Principal>
+            <Dependent Role="Testira">
+              <PropertyRef Name="PsenicaIdPsenice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestKvalitetaTestira">
+          <End Type="PoljoprivrednaFirma.TestKvaliteta" Role="TestKvaliteta" Multiplicity="1" />
+          <End Type="PoljoprivrednaFirma.Testira" Role="Testira" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestKvaliteta">
+              <PropertyRef Name="IdTesta" />
+            </Principal>
+            <Dependent Role="Testira">
+              <PropertyRef Name="TestKvalitetaIdTesta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PrijemnikPrihvata">
+          <End Type="PoljoprivrednaFirma.Prijemnik" Role="Prijemnik" Multiplicity="1" />
+          <End Type="PoljoprivrednaFirma.Prihvata" Role="Prihvata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prijemnik">
+              <PropertyRef Name="JMBG" />
+            </Principal>
+            <Dependent Role="Prihvata">
+              <PropertyRef Name="PrijemnikJMBG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestiraPrihvata">
+          <End Type="PoljoprivrednaFirma.Testira" Role="Testira" Multiplicity="1" />
+          <End Type="PoljoprivrednaFirma.Prihvata" Role="Prihvata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Testira">
+              <PropertyRef Name="PsenicaIdPsenice" />
+              <PropertyRef Name="TestKvalitetaIdTesta" />
+            </Principal>
+            <Dependent Role="Prihvata">
+              <PropertyRef Name="TestiraPsenicaIdPsenice" />
+              <PropertyRef Name="TestiraTestKvalitetaIdTesta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Silos">
+          <Key>
+            <PropertyRef Name="IdSilosa" />
+          </Key>
+          <Property Name="IdSilosa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KapacitetSilosa" Type="Double" Nullable="false" />
+          <Property Name="PopunjenKapacitetS" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Mlin" Relationship="PoljoprivrednaFirma.MlinSilos" FromRole="Silos" ToRole="Mlin" />
+          <NavigationProperty Name="Prihvata" Relationship="PoljoprivrednaFirma.SilosPrihvata" FromRole="Silos" ToRole="Prihvata" />
+          <NavigationProperty Name="Prekrupac" Relationship="PoljoprivrednaFirma.SilosPrekrupac" FromRole="Silos" ToRole="Prekrupac" />
+        </EntityType>
+        <EntityType Name="Mlin">
+          <Key>
+            <PropertyRef Name="IdMlina" />
+          </Key>
+          <Property Name="IdMlina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazivMlina" Type="String" Nullable="false" />
+          <Property Name="VlasnikMlina" Type="String" Nullable="false" />
+          <Property Name="SilosIdSilosa" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="Silos" Relationship="PoljoprivrednaFirma.MlinSilos" FromRole="Mlin" ToRole="Silos" />
+          <NavigationProperty Name="Posedujes" Relationship="PoljoprivrednaFirma.MlinPoseduje" FromRole="Mlin" ToRole="Poseduje" />
+          <NavigationProperty Name="Imas" Relationship="PoljoprivrednaFirma.MlinIma" FromRole="Mlin" ToRole="Ima" />
+        </EntityType>
+        <Association Name="MlinSilos">
+          <End Type="PoljoprivrednaFirma.Mlin" Role="Mlin" Multiplicity="0..1" />
+          <End Type="PoljoprivrednaFirma.Silos" Role="Silos" Multiplicity="*" />
+        </Association>
+        <Association Name="SilosPrihvata">
+          <End Type="PoljoprivrednaFirma.Silos" Role="Silos" Multiplicity="*" />
+          <End Type="PoljoprivrednaFirma.Prihvata" Role="Prihvata" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="Prekrupac">
+          <Key>
+            <PropertyRef Name="IdPrekrupaca" />
+          </Key>
+          <Property Name="IdPrekrupaca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KapacitetPrekrupaca" Type="Double" Nullable="false" />
+          <Property Name="PopunjenKapacitetP" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Silos" Relationship="PoljoprivrednaFirma.SilosPrekrupac" FromRole="Prekrupac" ToRole="Silos" />
+          <NavigationProperty Name="Posedujes" Relationship="PoljoprivrednaFirma.PrekrupacPoseduje" FromRole="Prekrupac" ToRole="Poseduje" />
+          <NavigationProperty Name="Pravis" Relationship="PoljoprivrednaFirma.PrekrupacPravi" FromRole="Prekrupac" ToRole="Pravi" />
+        </EntityType>
+        <Association Name="SilosPrekrupac">
+          <End Type="PoljoprivrednaFirma.Silos" Role="Silos" Multiplicity="*" />
+          <End Type="PoljoprivrednaFirma.Prekrupac" Role="Prekrupac" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="Poseduje" >
+          <Key>
+            <PropertyRef Name="MlinIdMlina" />
+            <PropertyRef Name="PrekrupacIdPrekrupaca" />
+          </Key>
+          <NavigationProperty Name="Mlin" Relationship="PoljoprivrednaFirma.MlinPoseduje" FromRole="Poseduje" ToRole="Mlin" />
+          <Property Name="MlinIdMlina" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Prekrupac" Relationship="PoljoprivrednaFirma.PrekrupacPoseduje" FromRole="Poseduje" ToRole="Prekrupac" />
+          <Property Name="PrekrupacIdPrekrupaca" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Odrzavateljs" Relationship="PoljoprivrednaFirma.OdrzavateljPoseduje" FromRole="Poseduje" ToRole="Odrzavatelj" />
+        </EntityType>
+        <Association Name="MlinPoseduje">
+          <End Type="PoljoprivrednaFirma.Mlin" Role="Mlin" Multiplicity="1" />
+          <End Type="PoljoprivrednaFirma.Poseduje" Role="Poseduje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mlin">
+              <PropertyRef Name="IdMlina" />
+            </Principal>
+            <Dependent Role="Poseduje">
+              <PropertyRef Name="MlinIdMlina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PrekrupacPoseduje">
+          <End Type="PoljoprivrednaFirma.Prekrupac" Role="Prekrupac" Multiplicity="1" />
+          <End Type="PoljoprivrednaFirma.Poseduje" Role="Poseduje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prekrupac">
+              <PropertyRef Name="IdPrekrupaca" />
+            </Principal>
+            <Dependent Role="Poseduje">
+              <PropertyRef Name="PrekrupacIdPrekrupaca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OdrzavateljPoseduje">
+          <End Type="PoljoprivrednaFirma.Odrzavatelj" Role="Odrzavatelj" Multiplicity="*" />
+          <End Type="PoljoprivrednaFirma.Poseduje" Role="Poseduje" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Brasno">
+          <Key>
+            <PropertyRef Name="IdBrasna" />
+          </Key>
+          <Property Name="IdBrasna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KolicinaBrasna" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Pravis" Relationship="PoljoprivrednaFirma.BrasnoPravi" FromRole="Brasno" ToRole="Pravi" />
+        </EntityType>
+        <EntityType Name="Pravi" >
+          <Key>
+            <PropertyRef Name="PrekrupacIdPrekrupaca" />
+            <PropertyRef Name="BrasnoIdBrasna" />
+          </Key>
+          <NavigationProperty Name="Prekrupac" Relationship="PoljoprivrednaFirma.PrekrupacPravi" FromRole="Pravi" ToRole="Prekrupac" />
+          <Property Name="PrekrupacIdPrekrupaca" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Brasno" Relationship="PoljoprivrednaFirma.BrasnoPravi" FromRole="Pravi" ToRole="Brasno" />
+          <Property Name="BrasnoIdBrasna" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Uzimas" Relationship="PoljoprivrednaFirma.PraviUzima" FromRole="Pravi" ToRole="Uzima" />
+        </EntityType>
+        <Association Name="PrekrupacPravi">
+          <End Type="PoljoprivrednaFirma.Prekrupac" Role="Prekrupac" Multiplicity="1" />
+          <End Type="PoljoprivrednaFirma.Pravi" Role="Pravi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prekrupac">
+              <PropertyRef Name="IdPrekrupaca" />
+            </Principal>
+            <Dependent Role="Pravi">
+              <PropertyRef Name="PrekrupacIdPrekrupaca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BrasnoPravi">
+          <End Type="PoljoprivrednaFirma.Brasno" Role="Brasno" Multiplicity="1" />
+          <End Type="PoljoprivrednaFirma.Pravi" Role="Pravi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brasno">
+              <PropertyRef Name="IdBrasna" />
+            </Principal>
+            <Dependent Role="Pravi">
+              <PropertyRef Name="BrasnoIdBrasna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Uzima" >
+          <Key>
+            <PropertyRef Name="MagacionerJMBG" />
+            <PropertyRef Name="PraviPrekrupacIdPrekrupaca" />
+            <PropertyRef Name="PraviBrasnoIdBrasna" />
+          </Key>
+          <NavigationProperty Name="Magacioner" Relationship="PoljoprivrednaFirma.MagacionerUzima" FromRole="Uzima" ToRole="Magacioner" />
+          <Property Name="MagacionerJMBG" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Pravi" Relationship="PoljoprivrednaFirma.PraviUzima" FromRole="Uzima" ToRole="Pravi" />
+          <Property Name="PraviPrekrupacIdPrekrupaca" Type="Int32" Nullable="false" />
+          <Property Name="PraviBrasnoIdBrasna" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Skladistes" Relationship="PoljoprivrednaFirma.SkladisteUzima" FromRole="Uzima" ToRole="Skladiste" />
+        </EntityType>
+        <Association Name="MagacionerUzima">
+          <End Type="PoljoprivrednaFirma.Magacioner" Role="Magacioner" Multiplicity="1" />
+          <End Type="PoljoprivrednaFirma.Uzima" Role="Uzima" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magacioner">
+              <PropertyRef Name="JMBG" />
+            </Principal>
+            <Dependent Role="Uzima">
+              <PropertyRef Name="MagacionerJMBG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PraviUzima">
+          <End Type="PoljoprivrednaFirma.Pravi" Role="Pravi" Multiplicity="1" />
+          <End Type="PoljoprivrednaFirma.Uzima" Role="Uzima" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pravi">
+              <PropertyRef Name="PrekrupacIdPrekrupaca" />
+              <PropertyRef Name="BrasnoIdBrasna" />
+            </Principal>
+            <Dependent Role="Uzima">
+              <PropertyRef Name="PraviPrekrupacIdPrekrupaca" />
+              <PropertyRef Name="PraviBrasnoIdBrasna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Skladiste">
+          <Key>
+            <PropertyRef Name="IdSkladista" />
+          </Key>
+          <Property Name="IdSkladista" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KapacitetSkladista" Type="Boolean" Nullable="false" />
+          <Property Name="PopunjenKapacitetSk" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Uzima" Relationship="PoljoprivrednaFirma.SkladisteUzima" FromRole="Skladiste" ToRole="Uzima" />
+          <NavigationProperty Name="Imas" Relationship="PoljoprivrednaFirma.SkladisteIma" FromRole="Skladiste" ToRole="Ima" />
+        </EntityType>
+        <Association Name="SkladisteUzima">
+          <End Type="PoljoprivrednaFirma.Skladiste" Role="Skladiste" Multiplicity="*" />
+          <End Type="PoljoprivrednaFirma.Uzima" Role="Uzima" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="Ima" >
+          <Key>
+            <PropertyRef Name="MlinIdMlina" />
+            <PropertyRef Name="SkladisteIdSkladista" />
+          </Key>
+          <NavigationProperty Name="Mlin" Relationship="PoljoprivrednaFirma.MlinIma" FromRole="Ima" ToRole="Mlin" />
+          <Property Name="MlinIdMlina" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Skladiste" Relationship="PoljoprivrednaFirma.SkladisteIma" FromRole="Ima" ToRole="Skladiste" />
+          <Property Name="SkladisteIdSkladista" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kamion" Relationship="PoljoprivrednaFirma.KamionIma" FromRole="Ima" ToRole="Kamion" />
+        </EntityType>
+        <Association Name="MlinIma">
+          <End Type="PoljoprivrednaFirma.Mlin" Role="Mlin" Multiplicity="1" />
+          <End Type="PoljoprivrednaFirma.Ima" Role="Ima" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mlin">
+              <PropertyRef Name="IdMlina" />
+            </Principal>
+            <Dependent Role="Ima">
+              <PropertyRef Name="MlinIdMlina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SkladisteIma">
+          <End Type="PoljoprivrednaFirma.Skladiste" Role="Skladiste" Multiplicity="1" />
+          <End Type="PoljoprivrednaFirma.Ima" Role="Ima" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skladiste">
+              <PropertyRef Name="IdSkladista" />
+            </Principal>
+            <Dependent Role="Ima">
+              <PropertyRef Name="SkladisteIdSkladista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Kamion">
+          <Key>
+            <PropertyRef Name="IdKamiona" />
+          </Key>
+          <Property Name="IdKamiona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KapacitetKamiona" Type="Double" Nullable="false" />
+          <Property Name="ImaVozaca" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Imas" Relationship="PoljoprivrednaFirma.KamionIma" FromRole="Kamion" ToRole="Ima" />
+          <NavigationProperty Name="Prevoznik" Relationship="PoljoprivrednaFirma.PrevoznikKamion" FromRole="Kamion" ToRole="Prevoznik" />
+        </EntityType>
+        <Association Name="KamionIma">
+          <End Type="PoljoprivrednaFirma.Kamion" Role="Kamion" Multiplicity="0..1" />
+          <End Type="PoljoprivrednaFirma.Ima" Role="Ima" Multiplicity="*" />
+        </Association>
+        <Association Name="PrevoznikKamion">
+          <End Type="PoljoprivrednaFirma.Prevoznik" Role="Prevoznik" Multiplicity="0..1" />
+          <End Type="PoljoprivrednaFirma.Kamion" Role="Kamion" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PoljoprivrednaFirmaStoreContainer" CdmEntityContainer="PoljoprivrednaFirmaContainer">
+    <EntitySetMapping Name="Radniks">
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Radnik)">
+        <MappingFragment StoreEntitySet="Radniks">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="DatumRodjenja" ColumnName="DatumRodjenja" />
+          <ScalarProperty Name="Zarada" ColumnName="Zarada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Prijemnik)">
+        <MappingFragment StoreEntitySet="Radniks_Prijemnik">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+          <ScalarProperty Name="ProsecanBrPrijema" ColumnName="ProsecanBrPrijema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Odrzavatelj)">
+        <MappingFragment StoreEntitySet="Radniks_Odrzavatelj">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+          <ScalarProperty Name="BrojOdrzavanihPrekrupaca" ColumnName="BrojOdrzavanihPrekrupaca" />
+          <ScalarProperty Name="TrenutnoZauzet" ColumnName="TrenutnoZauzet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Magacioner)">
+        <MappingFragment StoreEntitySet="Radniks_Magacioner">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+          <ScalarProperty Name="ProsecanBrUzimanja" ColumnName="ProsecanBrUzimanja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Prevoznik)">
+        <MappingFragment StoreEntitySet="Radniks_Prevoznik">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+          <ScalarProperty Name="ProsecanBrPrevoza" ColumnName="ProsecanBrPrevoza" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Psenicas">
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Psenica)">
+        <MappingFragment StoreEntitySet="Psenicas">
+          <ScalarProperty Name="IdPsenice" ColumnName="IdPsenice" />
+          <ScalarProperty Name="KolicinaPsenice" ColumnName="KolicinaPsenice" />
+          <ScalarProperty Name="Kvalitet" ColumnName="Kvalitet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TestKvalitetas">
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.TestKvaliteta)">
+        <MappingFragment StoreEntitySet="TestKvalitetas">
+          <ScalarProperty Name="IdTesta" ColumnName="IdTesta" />
+          <ScalarProperty Name="KapacitetTestera" ColumnName="KapacitetTestera" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Testiras">
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Testira)">
+        <MappingFragment StoreEntitySet="Testiras">
+          <ScalarProperty Name="PsenicaIdPsenice" ColumnName="PsenicaIdPsenice" />
+          <ScalarProperty Name="TestKvalitetaIdTesta" ColumnName="TestKvalitetaIdTesta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prihvatas">
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Prihvata)">
+        <MappingFragment StoreEntitySet="Prihvatas">
+          <ScalarProperty Name="PrijemnikJMBG" ColumnName="PrijemnikJMBG" />
+          <ScalarProperty Name="TestiraPsenicaIdPsenice" ColumnName="TestiraPsenicaIdPsenice" />
+          <ScalarProperty Name="TestiraTestKvalitetaIdTesta" ColumnName="TestiraTestKvalitetaIdTesta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Silos">
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Silos)">
+        <MappingFragment StoreEntitySet="Silos">
+          <ScalarProperty Name="IdSilosa" ColumnName="IdSilosa" />
+          <ScalarProperty Name="KapacitetSilosa" ColumnName="KapacitetSilosa" />
+          <ScalarProperty Name="PopunjenKapacitetS" ColumnName="PopunjenKapacitetS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mlins">
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Mlin)">
+        <MappingFragment StoreEntitySet="Mlins">
+          <ScalarProperty Name="IdMlina" ColumnName="IdMlina" />
+          <ScalarProperty Name="NazivMlina" ColumnName="NazivMlina" />
+          <ScalarProperty Name="VlasnikMlina" ColumnName="VlasnikMlina" />
+          <ScalarProperty Name="SilosIdSilosa" ColumnName="SilosIdSilosa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prekrupacs">
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Prekrupac)">
+        <MappingFragment StoreEntitySet="Prekrupacs">
+          <ScalarProperty Name="IdPrekrupaca" ColumnName="IdPrekrupaca" />
+          <ScalarProperty Name="KapacitetPrekrupaca" ColumnName="KapacitetPrekrupaca" />
+          <ScalarProperty Name="PopunjenKapacitetP" ColumnName="PopunjenKapacitetP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posedujes">
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Poseduje)">
+        <MappingFragment StoreEntitySet="Posedujes">
+          <ScalarProperty Name="MlinIdMlina" ColumnName="MlinIdMlina" />
+          <ScalarProperty Name="PrekrupacIdPrekrupaca" ColumnName="PrekrupacIdPrekrupaca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brasnoes">
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Brasno)">
+        <MappingFragment StoreEntitySet="Brasnoes">
+          <ScalarProperty Name="IdBrasna" ColumnName="IdBrasna" />
+          <ScalarProperty Name="KolicinaBrasna" ColumnName="KolicinaBrasna" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pravis">
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Pravi)">
+        <MappingFragment StoreEntitySet="Pravis">
+          <ScalarProperty Name="PrekrupacIdPrekrupaca" ColumnName="PrekrupacIdPrekrupaca" />
+          <ScalarProperty Name="BrasnoIdBrasna" ColumnName="BrasnoIdBrasna" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uzimas">
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Uzima)">
+        <MappingFragment StoreEntitySet="Uzimas">
+          <ScalarProperty Name="MagacionerJMBG" ColumnName="MagacionerJMBG" />
+          <ScalarProperty Name="PraviPrekrupacIdPrekrupaca" ColumnName="PraviPrekrupacIdPrekrupaca" />
+          <ScalarProperty Name="PraviBrasnoIdBrasna" ColumnName="PraviBrasnoIdBrasna" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Skladistes">
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Skladiste)">
+        <MappingFragment StoreEntitySet="Skladistes">
+          <ScalarProperty Name="IdSkladista" ColumnName="IdSkladista" />
+          <ScalarProperty Name="KapacitetSkladista" ColumnName="KapacitetSkladista" />
+          <ScalarProperty Name="PopunjenKapacitetSk" ColumnName="PopunjenKapacitetSk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Imas">
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Ima)">
+        <MappingFragment StoreEntitySet="Imas">
+          <ScalarProperty Name="MlinIdMlina" ColumnName="MlinIdMlina" />
+          <ScalarProperty Name="SkladisteIdSkladista" ColumnName="SkladisteIdSkladista" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kamions">
+      <EntityTypeMapping TypeName="IsTypeOf(PoljoprivrednaFirma.Kamion)">
+        <MappingFragment StoreEntitySet="Kamions">
+          <ScalarProperty Name="IdKamiona" ColumnName="IdKamiona" />
+          <ScalarProperty Name="KapacitetKamiona" ColumnName="KapacitetKamiona" />
+          <ScalarProperty Name="ImaVozaca" ColumnName="ImaVozaca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MlinSilos" TypeName="PoljoprivrednaFirma.MlinSilos" StoreEntitySet="Silos">
+      <EndProperty Name="Mlin">
+        <ScalarProperty Name="IdMlina" ColumnName="Mlin_IdMlina" />
+      </EndProperty>
+      <EndProperty Name="Silos">
+        <ScalarProperty Name="IdSilosa" ColumnName="IdSilosa" />
+      </EndProperty>
+      <Condition ColumnName="Mlin_IdMlina" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SilosPrihvata" TypeName="PoljoprivrednaFirma.SilosPrihvata" StoreEntitySet="Silos">
+      <EndProperty Name="Prihvata">
+        <ScalarProperty Name="PrijemnikJMBG" ColumnName="Prihvata_PrijemnikJMBG" />
+        <ScalarProperty Name="TestiraPsenicaIdPsenice" ColumnName="Prihvata_TestiraPsenicaIdPsenice" />
+        <ScalarProperty Name="TestiraTestKvalitetaIdTesta" ColumnName="Prihvata_TestiraTestKvalitetaIdTesta" />
+      </EndProperty>
+      <EndProperty Name="Silos">
+        <ScalarProperty Name="IdSilosa" ColumnName="IdSilosa" />
+      </EndProperty>
+      <Condition ColumnName="Prihvata_PrijemnikJMBG" IsNull="false" />
+      <Condition ColumnName="Prihvata_TestiraPsenicaIdPsenice" IsNull="false" />
+      <Condition ColumnName="Prihvata_TestiraTestKvalitetaIdTesta" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SilosPrekrupac" TypeName="PoljoprivrednaFirma.SilosPrekrupac" StoreEntitySet="Silos">
+      <EndProperty Name="Prekrupac">
+        <ScalarProperty Name="IdPrekrupaca" ColumnName="Prekrupac_IdPrekrupaca" />
+      </EndProperty>
+      <EndProperty Name="Silos">
+        <ScalarProperty Name="IdSilosa" ColumnName="IdSilosa" />
+      </EndProperty>
+      <Condition ColumnName="Prekrupac_IdPrekrupaca" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OdrzavateljPoseduje" TypeName="PoljoprivrednaFirma.OdrzavateljPoseduje" StoreEntitySet="OdrzavateljPoseduje">
+      <EndProperty Name="Odrzavatelj">
+        <ScalarProperty Name="JMBG" ColumnName="Odrzavateljs_JMBG" />
+      </EndProperty>
+      <EndProperty Name="Poseduje">
+        <ScalarProperty Name="MlinIdMlina" ColumnName="Posedujes_MlinIdMlina" />
+        <ScalarProperty Name="PrekrupacIdPrekrupaca" ColumnName="Posedujes_PrekrupacIdPrekrupaca" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SkladisteUzima" TypeName="PoljoprivrednaFirma.SkladisteUzima" StoreEntitySet="Skladistes">
+      <EndProperty Name="Uzima">
+        <ScalarProperty Name="MagacionerJMBG" ColumnName="Uzima_MagacionerJMBG" />
+        <ScalarProperty Name="PraviPrekrupacIdPrekrupaca" ColumnName="Uzima_PraviPrekrupacIdPrekrupaca" />
+        <ScalarProperty Name="PraviBrasnoIdBrasna" ColumnName="Uzima_PraviBrasnoIdBrasna" />
+      </EndProperty>
+      <EndProperty Name="Skladiste">
+        <ScalarProperty Name="IdSkladista" ColumnName="IdSkladista" />
+      </EndProperty>
+      <Condition ColumnName="Uzima_MagacionerJMBG" IsNull="false" />
+      <Condition ColumnName="Uzima_PraviPrekrupacIdPrekrupaca" IsNull="false" />
+      <Condition ColumnName="Uzima_PraviBrasnoIdBrasna" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="KamionIma" TypeName="PoljoprivrednaFirma.KamionIma" StoreEntitySet="Imas">
+      <EndProperty Name="Kamion">
+        <ScalarProperty Name="IdKamiona" ColumnName="Kamion_IdKamiona" />
+      </EndProperty>
+      <EndProperty Name="Ima">
+        <ScalarProperty Name="MlinIdMlina" ColumnName="MlinIdMlina" />
+        <ScalarProperty Name="SkladisteIdSkladista" ColumnName="SkladisteIdSkladista" />
+      </EndProperty>
+      <Condition ColumnName="Kamion_IdKamiona" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PrevoznikKamion" TypeName="PoljoprivrednaFirma.PrevoznikKamion" StoreEntitySet="Kamions">
+      <EndProperty Name="Prevoznik">
+        <ScalarProperty Name="JMBG" ColumnName="Prevoznik_JMBG" />
+      </EndProperty>
+      <EndProperty Name="Kamion">
+        <ScalarProperty Name="IdKamiona" ColumnName="IdKamiona" />
+      </EndProperty>
+      <Condition ColumnName="Prevoznik_JMBG" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

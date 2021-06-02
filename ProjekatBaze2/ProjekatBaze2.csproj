@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{89D095B0-E312-4E31-A562-AE694C21468F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ProjekatBaze2</RootNamespace>
+    <AssemblyName>ProjekatBaze2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Command\BindableBase.cs" />
+    <Compile Include="DAO\BrasnoDAO.cs" />
+    <Compile Include="DAO\KamionDAO.cs" />
+    <Compile Include="DAO\MlinDAO.cs" />
+    <Compile Include="DAO\PrekrupacDAO.cs" />
+    <Compile Include="DAO\PsenicaDAO.cs" />
+    <Compile Include="DAO\RadnikDAO.cs" />
+    <Compile Include="DAO\SilosDAO.cs" />
+    <Compile Include="DAO\SkladisteDAO.cs" />
+    <Compile Include="DAO\TestKvalitetaDAO.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Model\Brasno.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Ima.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Kamion.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Magacioner.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Mlin.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Command\MyICommand.cs" />
+    <Compile Include="Model\Odrzavatelj.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PoljoprivrednaFirma.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Poseduje.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Pravi.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Prekrupac.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Prevoznik.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Prihvata.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Prijemnik.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Psenica.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Radnik.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Silos.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Skladiste.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Testira.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TestKvaliteta.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Uzima.cs">
+      <DependentUpon>PoljoprivrednaFirma.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AddEditBrasnoViewModel.cs" />
+    <Compile Include="ViewModel\AddEditKamionViewModel.cs" />
+    <Compile Include="ViewModel\AddEditMagacionerViewModel.cs" />
+    <Compile Include="ViewModel\AddEditMlinViewModel.cs" />
+    <Compile Include="ViewModel\AddEditOdrzavateljViewModel.cs" />
+    <Compile Include="ViewModel\AddEditPrekrupacViewModel.cs" />
+    <Compile Include="ViewModel\AddEditPrevoznikViewModel.cs" />
+    <Compile Include="ViewModel\AddEditPrijemnikViewModel.cs" />
+    <Compile Include="ViewModel\AddEditPsenicaViewModel.cs" />
+    <Compile Include="ViewModel\AddEditSilosViewModel.cs" />
+    <Compile Include="ViewModel\AddEditSkladisteViewModel.cs" />
+    <Compile Include="ViewModel\AddEditTestKvalitetaViewModel.cs" />
+    <Compile Include="ViewModel\BrasnoViewModel.cs" />
+    <Compile Include="ViewModel\KamionViewModel.cs" />
+    <Compile Include="ViewModel\MagacioneriViewModel.cs" />
+    <Compile Include="ViewModel\MlinViewModel.cs" />
+    <Compile Include="ViewModel\OdrzavateljiViewModel.cs" />
+    <Compile Include="ViewModel\PrekrupacViewModel.cs" />
+    <Compile Include="ViewModel\PrevozniciViewModel.cs" />
+    <Compile Include="ViewModel\PrijemniciViewModel.cs" />
+    <Compile Include="ViewModel\PsenicaViewModel.cs" />
+    <Compile Include="ViewModel\RadniciViewModel.cs" />
+    <Compile Include="ViewModel\SilosViewModel.cs" />
+    <Compile Include="ViewModel\SkladisteViewModel.cs" />
+    <Compile Include="ViewModel\TestKvalitetaViewModel.cs" />
+    <Compile Include="Views\AddEditBrasnoView.xaml.cs">
+      <DependentUpon>AddEditBrasnoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEditKamionView.xaml.cs">
+      <DependentUpon>AddEditKamionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEditMagacionerView.xaml.cs">
+      <DependentUpon>AddEditMagacionerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEditMlinView.xaml.cs">
+      <DependentUpon>AddEditMlinView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEditOdrzavateljView.xaml.cs">
+      <DependentUpon>AddEditOdrzavateljView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEditPrekrupacView.xaml.cs">
+      <DependentUpon>AddEditPrekrupacView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEditPrevoznikView.xaml.cs">
+      <DependentUpon>AddEditPrevoznikView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEditPrijemnikView.xaml.cs">
+      <DependentUpon>AddEditPrijemnikView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEditPsenicaView.xaml.cs">
+      <DependentUpon>AddEditPsenicaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEditSilosView.xaml.cs">
+      <DependentUpon>AddEditSilosView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEditSkladisteView.xaml.cs">
+      <DependentUpon>AddEditSkladisteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEditTestKvalitetaView.xaml.cs">
+      <DependentUpon>AddEditTestKvalitetaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BrasnoView.xaml.cs">
+      <DependentUpon>BrasnoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KamionView.xaml.cs">
+      <DependentUpon>KamionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MagacioneriView.xaml.cs">
+      <DependentUpon>MagacioneriView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MlinView.xaml.cs">
+      <DependentUpon>MlinView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OdrzavateljiView.xaml.cs">
+      <DependentUpon>OdrzavateljiView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrekrupacView.xaml.cs">
+      <DependentUpon>PrekrupacView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrevozniciView.xaml.cs">
+      <DependentUpon>PrevozniciView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrijemniciView.xaml.cs">
+      <DependentUpon>PrijemniciView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PsenicaView.xaml.cs">
+      <DependentUpon>PsenicaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RadniciView.xaml.cs">
+      <DependentUpon>RadniciView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SilosView.xaml.cs">
+      <DependentUpon>SilosView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SkladisteView.xaml.cs">
+      <DependentUpon>SkladisteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestKvalitetaView.xaml.cs">
+      <DependentUpon>TestKvalitetaView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\AddEditBrasnoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEditKamionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEditMagacionerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEditMlinView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEditOdrzavateljView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEditPrekrupacView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEditPrevoznikView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEditPrijemnikView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEditPsenicaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEditSilosView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEditSkladisteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEditTestKvalitetaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BrasnoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\KamionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MagacioneriView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MlinView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OdrzavateljiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PrekrupacView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PrevozniciView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PrijemniciView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PsenicaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RadniciView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SilosView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SkladisteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TestKvalitetaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\PoljoprivrednaFirma.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PoljoprivrednaFirma.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PoljoprivrednaFirma.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PoljoprivrednaFirma.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\PoljoprivrednaFirma.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PoljoprivrednaFirma.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="packages.config" />
+    <None Include="Model\PoljoprivrednaFirma.edmx.diagram">
+      <DependentUpon>PoljoprivrednaFirma.edmx</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\PoljoprivrednaFirma.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PoljoprivrednaFirma.Context.cs</LastGenOutput>
+      <DependentUpon>PoljoprivrednaFirma.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\PoljoprivrednaFirma.edmx.sql" />
+    <Content Include="Model\PoljoprivrednaFirma.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PoljoprivrednaFirma.cs</LastGenOutput>
+      <DependentUpon>PoljoprivrednaFirma.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
